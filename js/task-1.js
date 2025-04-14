@@ -14,7 +14,6 @@
 // console.log(makeTransaction(10, 500, 5000)); // "You ordered 10 droids worth 5000 credits!"
 
 
-
 // function slugify(title) {
 //     return title.toLowerCase().split(' ').join('-');
 // }
@@ -61,47 +60,56 @@
 // ); // false
 
 
+//const getUserNames = (users) => {
+//  return users.map(user => user.name);
+//};
 
-const getUserNames = (users) => {
-  return users.map(user => user.name);
-};
+//console.log(
+  //getUserNames([
+  //{
+  //
 
-console.log(
-  getUserNames([
-  {
-    name: "Moore Hensley",
-    email: "moorehensley@indexia.com",
-    balance: 2811
-  },
-  {
-    name: "Sharlene Bush",
-    email: "sharlenebush@tubesys.com",
-    balance: 3821
-  },
-  {
-    name: "Ross Vazquez",
-    email: "rossvazquez@xinware.com",
-    balance: 3793
-  },
-  {
-    name: "Elma Head",
-    email: "elmahead@omatom.com",
-    balance: 2278
-  },
-  {
-    name: "Carey Barr",
-    email: "careybarr@nurali.com",
-    balance: 3951
-  },
-  {
-    name: "Blackburn Dotson",
-    email: "blackburndotson@furnigeer.com",
-    balance: 1498
-  },
-  {
-    name: "Sheree Anthony",
-    email: "shereeanthony@kog.com",
-    balance: 2764
-  },
-])
-); // ["Moore Hensley", "Sharlene Bush", "Ross Vazquez", "Elma Head", "Carey Barr", "Blackburn Dotson", "Sheree Anthony"]
+  let customer = {
+    name: 'John',
+    age: 30,
+    balance: 100,
+    deduct: function(amount) {
+      this.balance -= amount;
+    },
+  
+    topUp: function(amount) {
+      this.balance += amount;
+    },
+  
+    getDiscount: function() {
+      return discount;
+    },
+  
+    setDiscount: function(discountPercentage) {
+      this.discount = discountPercentage;
+    },
+  
+    getBalance: function() {
+      return this.balance;
+    },
+  
+    getOrders: function() {
+      return this.orders;
+    },
+  
+    addOrder: function(orderAmount, orderName) {
+      if (!this.orders) {
+        this.orders = [];
+      }
+      this.orders.push({ amount: orderAmount, name: orderName });
+      return this.orders;
+    },
+  };
+  
+  console.log('Balance before deduction:', customer.balance);
+  customer.deduct(50);
+  console.log('Balance after deduction:', customer.balance);
+  
+  console.log('Balance before top up:', customer.balance);
+  customer.topUp(20);
+  console.log('Balance after top up:', customer.balance);
